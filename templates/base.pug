@@ -1,20 +1,15 @@
 doctype html
-static home
 html
-
 	head
-		style
-			include home.css
 		title= title
-
+		style(rel='stylesheet',href='static/css/home.css')
 
 	body
 		p.class Hello World of Node JS kk
 		button#test(onclick='test') Submit
 		
-		
-		script 
-			include hml.js
+		script(type="text/javascript",scr='static/js/hml.js')
+			
+
 	footer
-		p This the footer.
-	
+		p This the footer (c).

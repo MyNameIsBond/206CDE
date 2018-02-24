@@ -7,7 +7,7 @@ const port 		= 8080
 
 
 // Directories.
-app.use(express.static('static'))
+app.use(express.static(path.join(__dirname,'static')))
 app.set('views',path.join(__dirname,'templates'))
 app.set('view engine','pug')
 
