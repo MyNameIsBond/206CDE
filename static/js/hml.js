@@ -5,5 +5,5 @@ function test() {
 }
 
 function test1() {
-    console.log('test')
+    console.log('tessssst')
 }
