@@ -40,3 +40,8 @@ app.get('/user', (req,res) => {
 app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
 })
+
+
+
+//nodemon
+//bower
