@@ -1,14 +1,16 @@
-doctype html
+doctype html5
 html
 	head
 		title= title
-		style(rel='stylesheet',href='static/css/home.css')
+		link(rel="stylesheet",href="static/css/home.css")
+		link(rel="stylesheet",href="static/bower_files/bootstrap/dist/css/bootstrap.css")
 
-	body
-		p.class Hello World of Node JS kk
-		button#test(onclick='test') Submit
+	body.container
+		p Hello World of Node JS kk
+		button#test(onclick='test()') Submitt
 		
-		script(type="text/javascript",scr='static/js/hml.js')
+		script(type="javascript", src="static/js/hml.js")
+			
 			
 
 	footer

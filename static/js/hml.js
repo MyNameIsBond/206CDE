@@ -1,6 +1,6 @@
-console.log('test');
+console.log('test')
 function test() {
-    document.getElementById('test').eventListener('click',() => {
-        console.log('test');
+    document.getElementById('test').addEventListener('click',() => {
+        console.log('test')
     })
 }
