@@ -35,12 +35,19 @@ app.get('/user', (req,res) => {
 	})
 })
 
+app.get('/test/<hello>', (req,res) => {
+	res.send('hello')
+	console.log('test')
+	console.log(hello)
+})
+
+
+
 
 
 app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
 })
-
 
 
 //nodemon
