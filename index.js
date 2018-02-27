@@ -1,12 +1,17 @@
 'use strict'
 
 const path 		= require('path')
-const express 	= require('express')
+const express = require('express')
 const app 		= express()
 const port 		= 8080
 // sdds
 
 // Directories.
+const options = {
+	host 	: url,
+	port	: 8080,
+	path 	: 'type the url here'
+}
 app.use('/static',express.static(path.join(__dirname,'static')))
 app.set('views',path.join(__dirname,'templates'))
 app.set('view engine','pug')
