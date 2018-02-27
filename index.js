@@ -22,9 +22,7 @@ app.get('/', (req,res) => {
 
 // this is the graph
 app.get('/graph', (req,res) => {
-	res.render('base',{
-		title : 'graph'
-	})
+	res.send('Done!')
 })
 
 
@@ -41,6 +39,9 @@ app.get('/test/<hello>', (req,res) => {
 	console.log(hello)
 })
 
+app.get('/test2', (req,res) => {
+	res.send('Done!')
+})
 
 
 

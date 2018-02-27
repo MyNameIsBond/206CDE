@@ -5,26 +5,23 @@ document.getElementById('test').addEventListener('click',() => {
 
 
 
-function change_function(){
-    let valuee = document.getElementById('opt').value
-    console.log(valuee)
-}
-
 
 document.getElementById('opt').addEventListener('onchange', () => {
     console.log(value);
 })
 
-function functionName() {
 
-}
 
-document.getElementById('hml').addEventListener('click', () => {
-    hml = new XMLHttpRequest()
+function change_function() {
+    let hml = new XMLHttpRequest()
+    hml.onreadystatechange = function () {
+        if (this.status == 200) {
+            document.getElementById('hml_test').innerHTML =
+            this.responseText
+            console.log(this.responseText);
+        }
+    }
 
-})
-
-function change_function(x){
-    console.log(x.value)
-    console.log(x)
+    hml.open('GET','/graph', true)
+    hml.send()
 }

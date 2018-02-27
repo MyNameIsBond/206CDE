@@ -6,10 +6,11 @@ html
 		link(rel='stylesheet',href='static/bower_files/bootstrap/dist/css/bootstrap.css')
 
 	body.container
-		p Hello World of Node JS kk
+		p Hello World of Node JS
+		div#hml_test
 		button#test.btn-info  Submit 0
-		button#hml.btn-danger  Submit 0
-		select#opt(onchange='change_function(this)')
+		button#hml.btn(onclick='change_function()')  hml
+		select#opt(onchange='')
 			option(value='js') Javascript
 			option(value='c#') c#
 			option(value='php') php
