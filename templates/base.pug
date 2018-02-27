@@ -7,9 +7,9 @@ html
 
 	body.container
 		p Hello World of Node JS kk
-		button#test(onclick='test()')  Submit 0
-		button#test1(onclick='test1()') Submit 1
-		select#opt(onchange='change_function()')
+		button#test.btn-info  Submit 0
+		button#hml.btn-danger  Submit 0
+		select#opt(onchange='change_function(this)')
 			option(value='js') Javascript
 			option(value='c#') c#
 			option(value='php') php
@@ -18,7 +18,6 @@ html
 				
 		
 		script(src='static/js/hml.js')
-			
 			
 
 	footer
