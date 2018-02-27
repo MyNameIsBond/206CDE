@@ -11,6 +11,7 @@ const options = {
 	host 	: url,
 	port	: 8080,
 	path 	: 'type the url here'
+	method : 'GET'
 }
 app.use('/static',express.static(path.join(__dirname,'static')))
 app.set('views',path.join(__dirname,'templates'))
