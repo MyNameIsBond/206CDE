@@ -3,6 +3,12 @@ document.getElementById('test').addEventListener('click',() => {
     console.log('test')
 })
 
+function select(x) {
+
+  document.getElementById('opt').addEventListener.value
+  console.log(x.value)
+
+}
 
 
 
