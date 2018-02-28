@@ -23,7 +23,7 @@ app.get('/', (req,res) => {
 })
 
 
-// this is the graph
+// graph url
 app.get('/graph', (req,res) => {
 	cc.coinList()
 	.then(coinList => {
@@ -35,10 +35,12 @@ app.get('/graph', (req,res) => {
 
 
 // User interface
-app.get('/user', (req,res) => {
-	res.render('base',{
-		title : 'user'
-	})
+app.get('/user/:arg/:arg2', (req,res) => {
+	let args = {
+		arg:req.params.arg,
+		arg2:req.params.arg2
+	}
+	res.send(args)
 })
 
 app.get('/test/<hello>', (req,res) => {
