@@ -35,7 +35,7 @@ app.get('/graph', (req,res) => {
 
 
 // User interface
-app.get('/user/:arg/:arg2', (req,res) => {
+app.get('/graph/:arg/:arg2', (req,res) => {
 	let args = {
 		arg	:req.params.arg,
 		arg2:req.params.arg2
