@@ -1,18 +1,15 @@
 'use strict'
 
 const path 		= require('path')
-const express = require('express')
+const express 	= require('express')
 const app 		= express()
 const port 		= 8080
+const https 	= require('https')
+const cc 		= require('cryptocompare')
+global.fetch 	= require('node-fetch')
 // sdds
 
 // Directories.
-const options = {
-	host 	: url,
-	port	: 8080,
-	path 	: 'type the url here'
-	method : 'GET'
-}
 app.use('/static',express.static(path.join(__dirname,'static')))
 app.set('views',path.join(__dirname,'templates'))
 app.set('view engine','pug')
@@ -28,7 +25,12 @@ app.get('/', (req,res) => {
 
 // this is the graph
 app.get('/graph', (req,res) => {
-	res.send('Done!')
+	cc.coinList()
+	.then(coinList => {
+		let data = coinList.Data
+		res.send(data)
+	})
+	.catch(console.error)
 })
 
 
@@ -59,3 +61,5 @@ app.listen(port, () => {
 
 //nodemon
 //bower
+//node-fetch
+//cryptocompare
