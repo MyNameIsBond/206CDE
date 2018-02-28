@@ -37,21 +37,12 @@ app.get('/graph', (req,res) => {
 // User interface
 app.get('/user/:arg/:arg2', (req,res) => {
 	let args = {
-		arg:req.params.arg,
+		arg	:req.params.arg,
 		arg2:req.params.arg2
 	}
 	res.send(args)
 })
 
-app.get('/test/<hello>', (req,res) => {
-	res.send('hello')
-	console.log('test')
-	console.log(hello)
-})
-
-app.get('/test2', (req,res) => {
-	res.send('Done!')
-})
 
 
 
@@ -60,7 +51,7 @@ app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
 })
 
-
+// libraries I'm using.
 //nodemon
 //bower
 //node-fetch

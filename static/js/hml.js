@@ -5,23 +5,18 @@ function select(x) {
 
 
 
-document.getElementById('opt').addEventListener('change', (x) => {
-    console.log(x.value);
-})
-
-
-
 function change_function() {
     let xml = new XMLHttpRequest()
     xml.onreadystatechange = function () {
-        let output = []
+        let output = new Object;
         if (this.status == 200) {
             let coins = JSON.parse(this.responseText)
 
             for (let coin in coins){
-                output.push({'name':coin[i].Name,'url':coin[i].ImageUrl})
+                output.name = coins[coin].Name
             }
-            document.getElementById('hml_test').innerHTML = output
+            console.log(output);
+            document.getElementById('hml_test').innerHTML = coins
         } else {
             const error = 'Something went wrong'
             console.log(error,xml.statusText)
@@ -32,19 +27,28 @@ function change_function() {
     xml.send()
 }
 
-document.getElementById('hml2').addEventListener('click', () => {
-    let hml = new XMLHttpRequest()
-    hml.onreadystatechange = function() {
-        if (this.status == 200) {
-            let coin = JSON.parse(this.responseText)
-            document.getElementById('hml_test').innerHTML = coin
-            console.log(coin)
 
-        } else {
-            console.log('Error', hml.statusText)
-        }
-    }
-    hml.open('GET', '/graph', true)
-    hml.send()
-
-})
+// document.getElementById('hml').addEventListener('click', () => {
+//     let hml = new XMLHttpRequest()
+//     hml.onreadystatechange = function() {
+//         if (this.status == 200) {
+//             let names = {
+//                 name:,
+//                 url:
+//             }
+//             let coins = JSON.parse(this.responseText)
+//             for (var coin in coins) {
+//                 names.name = coins[coin].name
+//                 names.url = coins[coin].Url
+//
+//             }
+//             document.getElementById('hml_test').innerHTML = names
+//
+//         } else {
+//             console.log('Error', hml.statusText)
+//         }
+//     }
+//     hml.open('GET', '/graph', true)
+//     hml.send()
+//
+// })
