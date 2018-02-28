@@ -9,7 +9,7 @@ function select(x) {
 
 function change_function() {
     let xml = new XMLHttpRequest()
-    xml.onreadystatechange = function () {
+    xml.onreadystatechange = () => {
         let output = new Array();
         if (this.status == 200) {
             let coins = JSON.parse(this.responseText)
