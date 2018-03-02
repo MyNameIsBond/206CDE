@@ -5,7 +5,7 @@ const express 	= require('express')
 const app 		= express()
 const port 		= 8080
 const https 	= require('https')
-const cc 		= require('cryptocompare')
+const cc 			= require('cryptocompare')
 global.fetch 	= require('node-fetch')
 // sdds
 
@@ -27,23 +27,37 @@ app.get('/', (req,res) => {
 app.get('/graph', (req,res) => {
 	cc.coinList()
 	.then(coinList => {
+		let data = JSON.parse(coinList.Data)
+
+		let coins = new Array()
+		for (const coin in data) {
+				coins.push(data[coin].Name)
+		}
+		res.send(coins)
+	})
+	.catch(console.error)
+})
+// graph url
+app.get('/graph/test', (req,res) => {
+	cc.coinList()
+	.then(coinList => {
 		let data = coinList.Data
-		res.send(data)
+		let names = new Array()
+		for (var coin in data) {
+			names.push({name : data[coin].Name, url:data[coin].Url })
+		}
+		res.send({'names' : names.name})
 	})
 	.catch(console.error)
 })
 
-
 // User interface
-app.get('/graph/:cryptoc/:currency', (req,res) => {
+app.get('/graph/:crupto/:currecncy', (req,res) => {
 	let args = {
-		arg	:req.params.cryptoc,
-		arg2:req.params.currency
+		currecncies:req.params
 	}
 	res.send(args)
 })
-
-
 
 
 
@@ -51,7 +65,7 @@ app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
 })
 
-// libraries I'm using.
+
 //nodemon
 //bower
 //node-fetch
