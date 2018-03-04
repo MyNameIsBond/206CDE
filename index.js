@@ -7,7 +7,6 @@ const port 		= 8080
 const https 	= require('https')
 const cc 			= require('cryptocompare')
 global.fetch 	= require('node-fetch')
-// sdds
 
 // Directories.
 app.use('/static',express.static(path.join(__dirname,'static')))
@@ -24,32 +23,22 @@ app.get('/', (req,res) => {
 
 
 // graph url
-app.get('/graph', (req,res) => {
-	cc.coinList()
-	.then(coinList => {
-		let data = JSON.parse(coinList.Data)
-
-		let coins = new Array()
-		for (const coin in data) {
-				coins.push(data[coin].Name)
-		}
-		res.send(coins)
-	})
-	.catch(console.error)
-})
-// graph url
-app.get('/graph/test', (req,res) => {
+app.get('/names', (req,res) => {
 	cc.coinList()
 	.then(coinList => {
 		let data = coinList.Data
-		let names = new Array()
-		for (var coin in data) {
-			names.push({name : data[coin].Name, url:data[coin].Url })
+
+		let coin_names = new Array()
+		for (const coin in data) {
+				coin_names.push(data[coin].Name)
 		}
-		res.send({'names' : names.name})
+		console.log(coin_names)
+		res.send(coin_names)
 	})
 	.catch(console.error)
 })
+
+
 
 // User interface
 app.get('/graph/:crupto/:currecncy', (req,res) => {
@@ -58,7 +47,6 @@ app.get('/graph/:crupto/:currecncy', (req,res) => {
 	}
 	res.send(args)
 })
-
 
 
 app.listen(port, () => {
