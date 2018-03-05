@@ -1,22 +1,29 @@
-function select(x) {
-  document.getElementById('opt').addEventListener.value
+function c_value(x) {
+  document.getElementById('c_value').addEventListener.value
   console.log(x.value)
+  return x.value  
 }
 
-
+function cc_value(x) {
+    document.getElementById('cc_value').addEventListener.value
+    console.log(x.value)
+    return (x.value,(x) => {
+        document.getElementById('c_value').addEventListener.value
+        console.log(x.value)
+        return value.x
+    })
+  }
 document.getElementById('xml').addEventListener('click', () => {
     let xml = new XMLHttpRequest()
 
     xml.onreadystatechange = function () {
 
         if (this.status === 200 && this.readyState === 4) {
-            let coins = this.responseText
             document.getElementById('xml_test').innerHTML = this.responseText
-            for (const name in coins) {
-                console.log(name)
-            }
+            console.log(this.responseText)
+
         } else {
-            const error = 'damn, error!'
+            const error = 'damn, error.'
             console.log(error,xml.statusText)
         }
     }
@@ -25,20 +32,3 @@ document.getElementById('xml').addEventListener('click', () => {
 })
 
 
-
-
-
-// document.getElementById('xml').addEventListener('click', () => {
-//     xml = new XMLHttpRequest()
-//     xml.open('GET', '/test/test' , true)
-
-//     xml.onload = function () {
-//         if (this.status == 200) {
-//             console.log(this.responseText)
-//         } else {
-//             const error = 'Error'
-//             console.log(error, this.status)
-//         }
-//     }
-//     xml.send()
-// })

@@ -10,20 +10,22 @@ html
 			li#xml_test
 			
 		button#xml.btn xml
-		
-		select#opt(onchange='select(this)')
-			option(value='js') Javascript
-			option(value='c#') c#
-			option(value='php') php
-			option(value='c++') c++
-			option(value='python') python
+		div#graph
+		div.coinainer
 
+			select#cc_value(onchange='cc_value(this)')
+				each cc in ccoin_names
+					option(value=cc)= cc
+					
+			select#c_value(onchange='c_value(this)')
+				each c in coin_names
+					option(value=c)= c
 
 
 
 		script(src='static/js/xml.js')
 			
 
-	footer
+	footer.footer
 		p This the footer (c).
 		

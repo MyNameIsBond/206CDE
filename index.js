@@ -5,7 +5,7 @@ const express 	= require('express')
 const app 		= express()
 const port 		= 8080
 const https 	= require('https')
-const cc 			= require('cryptocompare')
+const cc 		= require('cryptocompare')
 global.fetch 	= require('node-fetch')
 
 // Directories.
@@ -16,9 +16,22 @@ app.set('view engine','pug')
 
 // Home Page
 app.get('/', (req,res) => {
-	res.render('base',{
-		title : 'home'
+	cc.coinList()
+	.then(coinList => {
+		let data = coinList.Data
+		let ccoin_names = new Array()
+		const coin_names = ['USD','EUR']
+		for (const coin in data) {
+				ccoin_names.push(data[coin].Name)
+		}
+		ccoin_names.sort()
+		let coins = {
+			ccoin_names : ccoin_names,
+			coin_names  : coin_names 
+		}
+		res.render('base', coins )
 	})
+	.catch(console.error)
 })
 
 
