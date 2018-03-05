@@ -1,34 +1,23 @@
-function c_value(x) {
-  document.getElementById('c_value').addEventListener.value
-  console.log(x.value)
-  return x.value  
-}
 
-function cc_value(x) {
-    document.getElementById('cc_value').addEventListener.value
-    console.log(x.value)
-    return (x.value,(x) => {
-        document.getElementById('c_value').addEventListener.value
-        console.log(x.value)
-        return value.x
-    })
-  }
-document.getElementById('xml').addEventListener('click', () => {
-    let xml = new XMLHttpRequest()
 
-    xml.onreadystatechange = function () {
+// recieves the Currencies from back end. 
+function send_data(){
+    const cc_value = document.getElementById('cc_value').value
+    const c_value = document.getElementById('c_value').value
 
-        if (this.status === 200 && this.readyState === 4) {
-            document.getElementById('xml_test').innerHTML = this.responseText
+    console.log(cc_value,c_value)
+    const xml = new XMLHttpRequest()
+
+    xml.onload = function() {
+        if (this.status === 200 && this.readyState === 4){
+            document.getElementById('c_response').innerHTML = this.responseText
             console.log(this.responseText)
-
+            console.log('hey')
         } else {
-            const error = 'damn, error.'
-            console.log(error,xml.statusText)
+            const error = 'something went wrong'
+            console.log(error,this.statusText)
         }
     }
-    xml.open('GET','/names',true)
+    xml.open('GET','/graph/'+cc_value+'/'+c_value,true)
     xml.send()
-})
-
-
+}

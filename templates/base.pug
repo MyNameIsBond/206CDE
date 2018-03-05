@@ -6,18 +6,17 @@ html
 		link(rel='stylesheet',href='static/bower_files/bootstrap/dist/css/bootstrap.css')
 
 	body.container
-		ul
-			li#xml_test
-			
-		button#xml.btn xml
+		
+		div#c_response
+
 		div#graph
 		div.coinainer
 
-			select#cc_value(onchange='cc_value(this)')
+			select#cc_value(onchange='send_data()')
 				each cc in ccoin_names
 					option(value=cc)= cc
 					
-			select#c_value(onchange='c_value(this)')
+			select#c_value(onchange='send_data()')
 				each c in coin_names
 					option(value=c)= c
 

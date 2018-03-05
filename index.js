@@ -8,6 +8,8 @@ const https 	= require('https')
 const cc 		= require('cryptocompare')
 global.fetch 	= require('node-fetch')
 
+
+
 // Directories.
 app.use('/static',express.static(path.join(__dirname,'static')))
 app.set('views',path.join(__dirname,'templates'))
@@ -15,7 +17,7 @@ app.set('view engine','pug')
 
 
 // Home Page
-app.get('/', (req,res) => {
+app.get('/', (req,res) => {  
 	cc.coinList()
 	.then(coinList => {
 		let data = coinList.Data

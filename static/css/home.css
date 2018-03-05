@@ -11,5 +11,9 @@ body {
 
 
 .footer {
+    margin: 0px;
+    padding: 0px;
     background-color: rgba(211, 211, 211, 0.644);
+    height: 600px;
+    text-align: center;
 }
