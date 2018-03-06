@@ -14,11 +14,18 @@ html
 
 			select#cc_value(onchange='send_data()')
 				each cc in ccoin_names
-					option(value=cc)= cc
+					option(value=cc.Name)= cc.FullName
 					
 			select#c_value(onchange='send_data()')
 				each c in coin_names
 					option(value=c)= c
+		form#test
+			input(type="radio" name="time" value='week')
+			| Week 
+			input(type="radio" name="time" value='month') 
+			| Month 
+			input(type="radio" name="time" value='year') 
+			| Year 
 
 
 

@@ -24,12 +24,12 @@ app.get('/', (req,res) => {
 		let ccoin_names = new Array()
 		const coin_names = ['USD','EUR']
 		for (const coin in data) {
-				ccoin_names.push(data[coin].Name)
+				ccoin_names.push({Name:data[coin].Name,FullName:data[coin].FullName})
 		}
 		ccoin_names.sort()
 		let coins = {
 			ccoin_names : ccoin_names,
-			coin_names  : coin_names 
+			coin_names  : coin_names,
 		}
 		res.render('base', coins )
 	})
@@ -45,7 +45,7 @@ app.get('/names', (req,res) => {
 
 		let coin_names = new Array()
 		for (const coin in data) {
-				coin_names.push(data[coin].Name)
+				coin_names.push(data[coin].FullName)
 		}
 		console.log(coin_names)
 		res.send(coin_names)
@@ -56,11 +56,13 @@ app.get('/names', (req,res) => {
 
 
 // User interface
-app.get('/graph/:crupto/:currecncy', (req,res) => {
-	let args = {
-		currecncies:req.params
-	}
-	res.send(args)
+app.get('/graph/:crupto/:currency', (req,res) => {
+	cc.priceFull(req.params.crupto,req.params.currency)
+	.then (prices => {
+		res.send(prices)
+	})
+	.catch(console.error)
+
 })
 
 

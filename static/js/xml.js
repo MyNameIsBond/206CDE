@@ -16,3 +16,8 @@ function send_data(){
     xml.open('GET','/graph/'+cc_value+'/'+c_value,true)
     xml.send()
 }
+
+
+document.getElementById('test').addEventListener('change',()=>{
+    console.log(this)
+})
