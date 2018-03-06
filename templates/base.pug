@@ -19,7 +19,8 @@ html
 			select#c_value(onchange='send_data()')
 				each c in coin_names
 					option(value=c)= c
-		form#test
+					
+		form#test(onclick='test()')
 			input(type="radio" name="time" value='week')
 			| Week 
 			input(type="radio" name="time" value='month') 

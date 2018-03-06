@@ -1,4 +1,4 @@
-// recieves the Currencies from back end. 
+// recieves the Currencies from back end.
 function send_data(){
     const cc_value = document.getElementById('cc_value').value
     const c_value = document.getElementById('c_value').value
@@ -18,6 +18,8 @@ function send_data(){
 }
 
 
-document.getElementById('test').addEventListener('change',()=>{
-    console.log(this)
-})
+
+function test() {
+  const s = document.getElementById('test').elements['time'].value
+  console.log(s)
+}
