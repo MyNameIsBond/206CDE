@@ -13,7 +13,7 @@ function send_data(){
             console.log(error,this.statusText)
         }
     }
-    xml.open('GET','/graph/'+cc_value+'/'+c_value,true)
+    xml.open('GET',`/graph/${cc_value}/${c_value}`,true)
     xml.send()
 }
 
@@ -32,6 +32,6 @@ function time_f() {
           console.log(error,this.statusText)
       }
   }
-  xml.open('GET', '/time/'+time,true)
+  xml.open('GET', `/time/${time}`,true)
   xml.send()
 }
