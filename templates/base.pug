@@ -7,9 +7,12 @@ html
 
 	body.container
 		
-		div#c_response
+		div.container
+			div#c_response
 
 		div#graph
+
+		div#time_f
 		div.coinainer
 
 			select#cc_value(onchange='send_data()')
@@ -20,7 +23,7 @@ html
 				each c in coin_names
 					option(value=c)= c
 					
-		form#test(onclick='test()')
+		form#test(onclick='time_f()')
 			input(type="radio" name="time" value='week')
 			| Week 
 			input(type="radio" name="time" value='month') 

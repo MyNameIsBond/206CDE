@@ -9,7 +9,7 @@ function send_data(){
         if (this.status === 200 && this.readyState === 4){
             document.getElementById('c_response').innerHTML = this.responseText
         } else {
-            const error = 'something went wrong'
+            const error = 'price error'
             console.log(error,this.statusText)
         }
     }
@@ -19,7 +19,19 @@ function send_data(){
 
 
 
-function test() {
-  const s = document.getElementById('test').elements['time'].value
-  console.log(s)
+function time_f() {
+  const time = document.getElementById('test').elements.time.value
+  const xml = new XMLHttpRequest()
+
+  xml.onload = function () {
+      if (this.status === 200 && this.readyState === 4){
+          document.getElementById('time_f').innerHTML = this.responseText
+
+      } else {
+          const error = 'time error'
+          console.log(error,this.statusText)
+      }
+  }
+  xml.open('GET', '/time/'+time,true)
+  xml.send()
 }
