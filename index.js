@@ -67,18 +67,15 @@ app.get('/graph/:crupto/:currency', (req,res) => {
 })
 
 app.get('/time/:time', (req,res) => {
-	if (req.params.time === 'week') {
-		res.send('get back 7 days')
-	} else if(req.params.time ==='month') {
-		res.send('get back 30 days')
-	} else if (req.params.time === 'year'){
-		res.send('get back 364 or 365 if its a leap year')
-	} else {
-
-		res.send('back end erro with time ')
-	}
-	
+	cc.priceHistorical('BTC', 'USD', new Date('2017-01-01'))
+	.then(prices => {
+		console.log(prices)
+		res.send(prices)
+	})
+	.catch(console.error)
 })
+
+
 
 app.listen(port, () => {
 	console.log(`Server runs at ${port}`)

@@ -35,3 +35,4 @@ function time_f() {
   xml.open('GET', `/time/${time}`,true)
   xml.send()
 }
+
