@@ -54,7 +54,7 @@ function date_test(){
     for (let i = 0; i < 7; i++) {
         const something = new Date(today.valueOf() - oneday) 
        
-        console.log(new_something)
+        console.log(something)
         oneday += 86400000
     }
 

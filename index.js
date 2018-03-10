@@ -23,7 +23,7 @@ app.get('/', (req,res) => {
 	.then(coinList => {
 		let data = coinList.Data
 		let ccoin_names = new Array()
-		const coin_names = ['USD','EUR','GBP']
+		const coin_names = ['USD','EUR','GBP','CNY']
 		for (const coin in data) {
 				ccoin_names.push({Name:data[coin].Name,FullName:data[coin].FullName})
 		}
@@ -67,7 +67,37 @@ app.get('/graph/:crupto/:currency', (req,res) => {
 })
 
 app.get('/time/:time', (req,res) => {
-	cc.priceHistorical('BTC', 'USD', new Date('2017-01-01'))
+	let time = req.params.time
+	cc.priceHistorical('BTC', 'USD', time  => {
+		let oneday = 86400000
+		switch (time) {
+			case month:
+			weeka = new Array()			
+			for (let i = 0; i < 30; i++) {
+				const something = new Date(today.valueOf() - oneday) 
+				console.log(something)
+				oneday += 86400000
+				}
+				break
+			case year:
+			weeka = new Array()			
+			for (let i = 0; i < 30; i++) {
+				const something = new Date(today.valueOf() - oneday) 
+				console.log(something)
+				oneday += 86400000
+				}
+				break
+
+			case week:
+			weeka = new Array()
+			for (let i = 0; i < 7; i++) {
+				const something = new Date(today.valueOf() - oneday) 
+				console.log(something)
+        		oneday += 86400000
+				}
+				break
+		}
+	})
 	.then(prices => {
 		console.log(prices)
 		res.send(prices)
