@@ -89,20 +89,21 @@ app.get('/time/:time', (req,res) => {
 })
 
 function dates(day) {
-	let all_dates = Array()
+	let all_dates =new Array()
 	let today = new Date()
 	let oneday = 86400000
 
 	for (let i = 0; i < day; i++) {
-		console.log(new Date(today.getTime() - oneday))
-		console.log(oneday)
 		let ccdate =  new Date(today.getTime() - oneday)
-		let prices = cc.priceHistorical('BTC',['EUR','USD'],ccdate).then(prices => {return prices}).catch(console.error)
-		all_dates.push({date:ccdate , price:prices})
+		let pricesc = cc.priceHistorical('BTC','EUR',ccdate)
+		let the_prices = pricesc.then(prices => {console.log(prices)})
+		.catch(console.error)
+		console.log(the_prices)
+		all_dates.push({date:ccdate, price : the_prices})
 		oneday += 86400000
-		console.log(prices)
 	}
-	console.log(all_dates,'something')
+	console.log(cc)
+	console.log(all_dates)
 	return all_dates
 }
 
