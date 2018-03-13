@@ -66,44 +66,47 @@ app.get('/graph/:crupto/:currency', (req,res) => {
 
 })
 
-app.get('/time/:time', (req,res) => {
-	let time = req.params.time
-	cc.priceHistorical('BTC', 'USD', time  => {
-		let oneday = 86400000
-		switch (time) {
-			case month:
-			weeka = new Array()			
-			for (let i = 0; i < 30; i++) {
-				const something = new Date(today.valueOf() - oneday) 
-				console.log(something)
-				oneday += 86400000
-				}
-				break
-			case year:
-			weeka = new Array()			
-			for (let i = 0; i < 30; i++) {
-				const something = new Date(today.valueOf() - oneday) 
-				console.log(something)
-				oneday += 86400000
-				}
-				break
 
-			case week:
-			weeka = new Array()
-			for (let i = 0; i < 7; i++) {
-				const something = new Date(today.valueOf() - oneday) 
-				console.log(something)
-        		oneday += 86400000
-				}
-				break
-		}
-	})
-	.then(prices => {
-		console.log(prices)
-		res.send(prices)
-	})
-	.catch(console.error)
+app.get('/time/:time', (req,res) => {
+    switch (req.params.time) {
+
+        case 'week':
+            res.send(dates(7))
+            break;
+        
+        case 'month':
+            res.send(dates(30))
+			break;
+			
+		case '6months':
+			res.send(dates(182))
+			break;
+
+        case 'year':
+            res.send(dates(365))
+			break;
+	}
 })
+
+function dates(day) {
+	let all_dates = Array()
+	let today = new Date()
+	let oneday = 86400000
+
+	for (let i = 0; i < day; i++) {
+		console.log(new Date(today.getTime() - oneday))
+		console.log(oneday)
+		let ccdate =  new Date(today.getTime() - oneday)
+		let prices = cc.priceHistorical('BTC',['EUR','USD'],ccdate).then(prices => {return prices}).catch(console.error)
+		all_dates.push({date:ccdate , price:prices})
+		oneday += 86400000
+		console.log(prices)
+	}
+	console.log(all_dates,'something')
+	return all_dates
+}
+
+
 
 
 
