@@ -39,19 +39,3 @@ function time_f() {
 
 
 
-
-function date_test(){
-
-    // let today           = new Date('2018-03-09')
-    // let yesterday       = new Date('2018-03-0')
-    // const randomdate    = new Date(1394104654000)
-    // let oneday          = 86400000
-    // const week          = oneday *  7 //86.400.000
-    // const mounth        = oneday *  30
-    // const year          = oneday *  364
-    // const last_year     = new Date(today.valueOf() - year )
-    const time = document.getElementById('test').elements.time.value
-
-
-}
-
