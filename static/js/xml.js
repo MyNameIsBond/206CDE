@@ -1,4 +1,5 @@
 // recieves the Currencies from back end.
+
 function send_data() {
     const cc_value = document.getElementById('cc_value').value
     const c_value = document.getElementById('c_value').value
@@ -24,6 +25,7 @@ function time_f() {
     const xml = new XMLHttpRequest()
 
     xml.onload = function () {
+
         if (this.status === 200 && this.readyState === 4) {
             document.getElementById('time_f').innerHTML = this.responseText
 
@@ -34,4 +36,21 @@ function time_f() {
     }
     xml.open('GET', `/time/${time}`, true)
     xml.send()
+}
+
+
+function vis() {
+    let canv = document.getElementById('canvs').getContext('2d')
+
+    let lchrt = new Chart(canv, {
+        type: 'line',
+        datasets: {
+            labels: ['22-2', '23-2', '24-2', '25-2', '26-2', '27-2'],
+            data: [1, 2, 34, 4, 5, 6, 7, 8]
+
+        },
+        options: {}
+
+
+    })
 }
