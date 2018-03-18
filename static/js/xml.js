@@ -40,13 +40,23 @@ function time_f() {
 
 
 function vis() {
-    let canv = document.getElementById('canvs').getContext('2d')
-
+    let canv = document.getElementById('myChart').getContext('2d')
+    let time = document.getElementById('test').elements.time.value
     let lchrt = new Chart(canv, {
         type: 'line',
-        datasets: {
-            labels: ['22-2', '23-2', '24-2', '25-2', '26-2', '27-2'],
-            data: [1, 2, 34, 4, 5, 6, 7, 8]
+        data: {
+            labels: ['One', 'two', 'three'],
+            datasets: [{
+                label: time,
+                data: [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                ]
+            }]
 
         },
         options: {}

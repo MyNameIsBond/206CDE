@@ -24,7 +24,7 @@ html
 					option(value=c)= c
 		button(onclick='vis()') LineG
 		div#container
-			canvas(width="600" height="400")#canvs
+			canvas(width="600" height="400")#myChart
 		form#test(onclick='time_f()')
 			input(type="radio" name="time" value='week')
 			| Week 
@@ -38,9 +38,7 @@ html
 
 
 		script(src='static/js/xml.js')
-		script(src='/node_modules/chart.js/dist/Chart.min.js')
-		script(src='/node_modules/chart.js/dist/Chart.js')
-		//- script(src="/static/bower_files/chart.js/dist/Chart.min.js")
-		//- script(src="/static/bower_files/chart.js/dist/Chart.min.js")
+		script(src="/static/bower_files/chart.js/dist/Chart.min.js")
+		script(src="/static/bower_files/chart.js/dist/Chart.min.js")
 	footer.footer
 		p This the footer (c).
