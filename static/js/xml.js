@@ -1,5 +1,5 @@
 // recieves the Currencies from back end.
-
+window.onload = time_f()
 function send_data() {
     const cc_value = document.getElementById('cc_value').value
     const c_value = document.getElementById('c_value').value
@@ -22,6 +22,8 @@ function send_data() {
 
 function time_f() {
     const time = document.getElementById('test').elements.time.value
+    const cc_value = document.getElementById('cc_value').elements.time.value
+    const c_value = document.getElementById('c_value').elements.time.value
     const xml = new XMLHttpRequest()
 
     xml.onload = function () {
@@ -33,7 +35,7 @@ function time_f() {
             console.log(error, this.statusText)
         }
     }
-    xml.open('GET', `/time/${time}`, true)
+    xml.open('GET', `/time/${time}/${cc_value}/${c_value}`, true)
     xml.send()
 }
 
@@ -80,3 +82,5 @@ function grph(text) {
 
     return lchrt
 }
+
+
