@@ -27,8 +27,8 @@ function time_f() {
     xml.onload = function () {
 
         if (this.status === 200 && this.readyState === 4) {
-            document.getElementById('time_f').innerHTML = grph(this.responseText)
-            } else {
+            document.getElementById('myChart').innerHTML = grph(this.responseText)
+        } else {
             const error = 'time error'
             console.log(error, this.statusText)
         }
@@ -37,31 +37,46 @@ function time_f() {
     xml.send()
 }
 
-function grph (text) {
-  let date = new Array() 
-  let price = new Array() 
-  let whatever = JSON.parse(text)
-  for (var i = 0; i < whatever.length; i++) {
-    date.push(whatever[i].date)
-    price.push(whatever[i].price)
-  }
-  let canv = document.getElementById('time_f').getContext('2d')
-  const time = document.getElementById('test').elements.time.value
-  const c_value = document.getElementById('c_value').value
-  const cc_value = document.getElementById('cc_value').value
+function grph(text) {
+    let date = new Array()
+    let price = new Array()
+    let whatever = JSON.parse(text)
+    for (var i = 0; i < whatever.length; i++) {
+        date.push(whatever[i].date)
+        price.push(whatever[i].price)
+    }
+    let myChart = document.getElementById('myChart').getContext('2d')
+    const time = document.getElementById('test').elements.time.value
+    const c_value = document.getElementById('c_value').value
+    const cc_value = document.getElementById('cc_value').value
 
-      let lchrt = new Chart({
+    let lchrt = new Chart(myChart, {
         type: 'line',
+        borderColor: ['rgba(255,99,132,1)'],
+        backgroundColor: ['rgba(255,99,132,1)'],
         data: {
-            labels: [c_value, cc_value, time],
+            labels: [21, 22, 23, 24, 25, 26, 27, 28, 29],
             datasets: [{
-                label: date,
-                data: price
-            }]
+                label: [c_value, cc_value],
+                data: [7409.44,
+                    6739.05,
+                    6203.27,
+                    6742.8,
+                    6632.47,
+                    7402.44,
+                    6404.29,
+                    6604.29,
+                    6904.29
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                ],
+                backgroundColor: ['rgba(255,99,132,1)']
+            }],
+
         },
         options: {}
     })
 
-
+    return lchrt
 }
-
