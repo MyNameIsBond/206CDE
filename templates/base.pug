@@ -13,6 +13,7 @@ html
 		div#graph
 		button#date_test(onclick='date_test()') Date!
 		div#time_f
+			canvas(width="600" height="400")#myChart
 		div.coinainer
 
 			select#cc_value(onchange='send_data()')
@@ -23,8 +24,6 @@ html
 				each c in coin_names
 					option(value=c)= c
 		button(onclick='vis()') LineG
-		div#container
-			canvas(width="600" height="400")#myChart
 		form#test(onclick='time_f()')
 			input(type="radio" name="time" value='week')
 			| Week 

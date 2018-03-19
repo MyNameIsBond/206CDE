@@ -27,9 +27,8 @@ function time_f() {
     xml.onload = function () {
 
         if (this.status === 200 && this.readyState === 4) {
-            document.getElementById('time_f').innerHTML = this.responseText
-
-        } else {
+            document.getElementById('time_f').innerHTML = grph(this.responseText)
+            } else {
             const error = 'time error'
             console.log(error, this.statusText)
         }
@@ -38,29 +37,31 @@ function time_f() {
     xml.send()
 }
 
+function grph (text) {
+  let date = new Array() 
+  let price = new Array() 
+  let whatever = JSON.parse(text)
+  for (var i = 0; i < whatever.length; i++) {
+    date.push(whatever[i].date)
+    price.push(whatever[i].price)
+  }
+  let canv = document.getElementById('time_f').getContext('2d')
+  const time = document.getElementById('test').elements.time.value
+  const c_value = document.getElementById('c_value').value
+  const cc_value = document.getElementById('cc_value').value
 
-function vis() {
-    let canv = document.getElementById('myChart').getContext('2d')
-    let time = document.getElementById('test').elements.time.value
-    let lchrt = new Chart(canv, {
+      let lchrt = new Chart({
         type: 'line',
         data: {
-            labels: ['One', 'two', 'three'],
+            labels: [c_value, cc_value, time],
             datasets: [{
-                label: time,
-                data: [
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                ]
+                label: date,
+                data: price
             }]
-
         },
         options: {}
-
-
     })
+
+
 }
+
