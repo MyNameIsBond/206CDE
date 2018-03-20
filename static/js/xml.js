@@ -1,5 +1,6 @@
 // recieves the Currencies from back end.
 window.onload = time_f()
+
 function send_data() {
     const cc_value = document.getElementById('cc_value').value
     const c_value = document.getElementById('c_value').value
@@ -22,8 +23,8 @@ function send_data() {
 
 function time_f() {
     const time = document.getElementById('test').elements.time.value
-    const cc_value = document.getElementById('cc_value').elements.time.value
-    const c_value = document.getElementById('c_value').elements.time.value
+    const cc_value = document.getElementById('cc_value').value
+    const c_value = document.getElementById('c_value').value
     const xml = new XMLHttpRequest()
 
     xml.onload = function () {
@@ -35,17 +36,19 @@ function time_f() {
             console.log(error, this.statusText)
         }
     }
-    xml.open('GET', `/time/${time}/${cc_value}/${c_value}`, true)
+    xml.open('GET', `/${time}/${cc_value}/${c_value}`, true)
     xml.send()
 }
+
+// the Graph!
 
 function grph(text) {
     let date = new Array()
     let price = new Array()
-    let whatever = JSON.parse(text)
-    for (var i = 0; i < whatever.length; i++) {
-        date.push(whatever[i].date)
-        price.push(whatever[i].price)
+    let data = JSON.parse(text)
+    for (var i = 0; i < data.length; i++) {
+        date.push(data[i].date)
+        price.push(data[i].price)
     }
     let myChart = document.getElementById('myChart').getContext('2d')
     const time = document.getElementById('test').elements.time.value
@@ -54,8 +57,6 @@ function grph(text) {
 
     let lchrt = new Chart(myChart, {
         type: 'line',
-        borderColor: ['rgba(255,99,132,1)'],
-        backgroundColor: ['rgba(255,99,132,1)'],
         data: {
             labels: [21, 22, 23, 24, 25, 26, 27, 28, 29],
             datasets: [{
@@ -70,9 +71,7 @@ function grph(text) {
                     6604.29,
                     6904.29
                 ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                ],
+                borderColor: ['rgba(105,105,105,1)'],
                 backgroundColor: ['rgba(255,99,132,1)']
             }],
 
@@ -84,3 +83,6 @@ function grph(text) {
 }
 
 
+function name(params) {
+
+}

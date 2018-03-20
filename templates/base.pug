@@ -5,33 +5,32 @@ html
 		link(rel='stylesheet',href='static/css/home.css')
 		link(rel='stylesheet',href='static/bower_files/bootstrap/dist/css/bootstrap.css')
 
-	body.container
+	body
 
 		div.container
 			div#c_response
 
-		div#graph
-		button#date_test(onclick='date_test()') Date!
-		div#time_f
-			canvas(width="600" height="400")#myChart
-		div.coinainer
-
-			select#cc_value(onchange='send_data()')
-				each cc in ccoin_names
-					option(value=cc.Name)= cc.FullName
-					
-			select#c_value(onchange='send_data()')
-				each c in coin_names
-					option(value=c)= c
-		form#test(onclick='time_f()')
-			input(type="radio" name="time" value='week')
+		form#test.container(onclick='time_f()')
+			input(type="radio" name="time" value='week' checked='')
 			| Week 
 			input(type="radio" name="time" value='month') 
 			| Month 
 			input(type="radio" name="time" value='6months') 
 			| 6 months 
-			input(type="radio" name="time" value='year' checked='') 
+			input(type="radio" name="time" value='year') 
 			| Year 
+
+		div#time_f.container
+			canvas#myChart
+		div.container
+
+			select#cc_value(onchange='time_f()')
+				each cc in ccoin_names
+					option(value=cc.Name)= cc.FullName
+
+			select#c_value(onchange='time_f()')
+				each c in coin_names
+					option(value=c)= c
 
 
 
@@ -40,3 +39,6 @@ html
 		script(src='static/js/xml.js')
 	footer.footer
 		p This the footer (c).
+		a(href='#') Details
+		br
+		a(href='#') Who we are

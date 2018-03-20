@@ -10,7 +10,19 @@ body {
 .footer {
     margin: 0px;
     padding: 0px;
-    background-color: rgba(211, 211, 211, 0.644);
-    height: 600px;
+    background-color: black;
+    height: 450px;
     text-align: center;
+    color: darkslategrey;
 }
+
+.footer a:link {
+    text-decoration: none;
+    color: goldenrod;
+}
+
+.footer a:visited {
+    color: darkslategrey;
+}
+
+#c_value {}
