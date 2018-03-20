@@ -81,8 +81,3 @@ function grph(text) {
 
     return lchrt
 }
-
-
-function name(params) {
-
-}

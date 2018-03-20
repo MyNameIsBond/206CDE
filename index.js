@@ -97,29 +97,22 @@ function dates(day, cc_value, c_value) {
 	let all_dates = new Array()
 	let today = new Date()
 	let oneday = 86400000
-	let all_prices = new Array()
+
 
 	for (let i = 0; i < day; i++) {
 		let ccdate = new Date(today.getTime() - oneday)
 		let pricesc = cc.priceHistorical(cc_value, c_value, ccdate)
-		let the_prices = pricesc.then(prices => {
-				function go(prices) {
-					all_prices.push(prices)
-				}
-			})
+		let the_prices = pricesc.then(prices => {})
 			.catch(console.error)
-
 		all_dates.push({
 			date: ccdate,
 			price: the_prices
 		})
 		oneday += 86400000
 	}
-	console.log(all_prices)
 	console.log(all_dates)
 	return all_dates
 }
-
 
 
 app.listen(port, () => {
