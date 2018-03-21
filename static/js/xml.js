@@ -71,7 +71,7 @@ function grph(text) {
                     6604.29,
                     6904.29
                 ],
-                borderColor: ['rgba(105,105,105,1)'],
+                borderColor: ['rgba(255,99,132,1)'],
                 backgroundColor: ['rgba(255,99,132,1)']
             }],
 
@@ -81,3 +81,7 @@ function grph(text) {
 
     return lchrt
 }
+
+document.getElementById('gtype_value').addEventListener('change', () => {
+    console.log(this.value)
+})

@@ -7,8 +7,7 @@ const port = 8080
 const https = require('https')
 const cc = require('cryptocompare')
 global.fetch = require('node-fetch')
-
-
+const mongoose = require('mongoose')
 
 
 // Directories.
@@ -16,7 +15,9 @@ app.use('/static', express.static(path.join(__dirname, 'static')))
 app.set('views', path.join(__dirname, 'templates'))
 app.set('view engine', 'pug')
 
-
+mongoose.connect('mongodb://localhost/myapp', error => {
+	console.log(error)
+})
 
 // Home Page
 app.get('/', (req, res) => {
@@ -95,32 +96,39 @@ app.get('/:time/:cc_value/:c_value', (req, res) => {
 
 function dates(day, cc_value, c_value) {
 	let all_dates = new Array()
+	let prs = new Array()
 	let today = new Date()
 	let oneday = 86400000
 
 
 	for (let i = 0; i < day; i++) {
 		let ccdate = new Date(today.getTime() - oneday)
-		let pricesc = cc.priceHistorical(cc_value, c_value, ccdate)
-		let the_prices = pricesc.then(prices => {})
+		cc.priceHistorical(cc_value, c_value, ccdate)
+			.then(prices => {
+
+			})
 			.catch(console.error)
 		all_dates.push({
-			date: ccdate,
-			price: the_prices
+			date: ccdate
 		})
 		oneday += 86400000
 	}
-	console.log(all_dates)
+	console.log(prsStrore())
+	console.log(prs)
 	return all_dates
 }
 
 
+function prsStrore(prices) {
+	let prices = new Array()
+	console.push(prices)
+
+}
+
+
+
+app.get('/query' => req, res)
+
 app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
 })
-
-
-//nodemon
-//bower
-//node-fetch
-//cryptocompare
