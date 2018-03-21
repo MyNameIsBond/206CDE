@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose')
+var Schema = mongoose.Schema
 
-var blogSchema = new Schema({
+let Users = new Schema({
   username: String,
   email: String,
   password: String,
@@ -15,3 +15,5 @@ var blogSchema = new Schema({
     }
   }
 })
+
+let CCT = modules.exports = mongoose.models()
