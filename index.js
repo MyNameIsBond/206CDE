@@ -18,12 +18,9 @@ app.set('view engine', 'pug')
 mongoose.connect('mongodb://localhost/CCT', error => {
 	console.log(error)
 })
-let db = mongoose.connection
 
-db.once('open', () => {
-	console.log('Done!')
-})
-let Users = require('./models/ccschema')
+
+// let Users = require('./models/ccschema')
 
 // Home Page
 app.get('/', (req, res) => {
@@ -133,14 +130,14 @@ function prsStrore(prices) {
 
 
 
-app.get('/query', (req, res) => {
-	Users.find({}, (err, user) => {
-		res.render('base', {
-			email: 'email',
-			username: 'username'
-		})
-	})
-})
+// app.get('/query', (req, res) => {
+// 	Users.find({username: `${username}` , pass:`${pass}`}, (err, user) => {
+// 		res.render('base', {
+// 			email: 'email',
+// 			username: 'username'
+// 		})
+// 	})
+// })
 
 app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
