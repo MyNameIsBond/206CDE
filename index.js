@@ -108,8 +108,9 @@ function dates(day, cc_value, c_value) {
 		let ccdate = new Date(today.getTime() - oneday)
 		allData.push(cc.priceHistorical(cc_value, c_value, ccdate)
 			.then((prices) => {
+				console.log(prices)
 				return prices
-			}, 2000))
+			}).catch(console.error))
 
 		oneday += 86400000
 	}
