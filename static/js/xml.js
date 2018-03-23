@@ -20,7 +20,6 @@ function send_data() {
 }
 
 
-
 function time_f() {
     const time = document.getElementById('test').elements.time.value
     const cc_value = document.getElementById('cc_value').value
@@ -43,20 +42,21 @@ function time_f() {
 // the Graph!
 
 function grph(text) {
-    let date = new Array()
-    let price = new Array()
-    let data = JSON.parse(text)
+    const date = new Array()
+    const price = new Array()
+    const data = JSON.parse(text)
     console.log(data)
     for (var i = 0; i < data.length; i++) {
         date.push(data[i].date)
         price.push(data[i].price)
     }
-    let myChart = document.getElementById('myChart').getContext('2d')
+    const myChart = document.getElementById('myChart').getContext('2d')
     const time = document.getElementById('test').elements.time.value
     const c_value = document.getElementById('c_value').value
     const cc_value = document.getElementById('cc_value').value
     const typ = document.getElementById('gtype_value').value
-    let lchrt = new Chart(myChart, {
+    const clr = document.getElementById('clr_value').value
+    const lchrt = new Chart(myChart, {
         type: typ,
         data: {
             labels: [21, 22, 23, 24, 25, 26, 27, 28, 29],
@@ -72,14 +72,13 @@ function grph(text) {
                     6604.29,
                     6904.29
                 ],
-                borderColor: ['rgba(255,99,132,1)'],
-                backgroundColor: ['rgba(255,99,132,1)']
+                borderColor: clr,
+                backgroundColor: clr
             }],
 
         },
         options: {}
     })
-    console.log(lchrt.config.type)
     return lchrt
 
 }
