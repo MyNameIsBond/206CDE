@@ -46,6 +46,7 @@ function grph(text) {
     let date = new Array()
     let price = new Array()
     let data = JSON.parse(text)
+    console.log(data)
     for (var i = 0; i < data.length; i++) {
         date.push(data[i].date)
         price.push(data[i].price)
@@ -54,9 +55,9 @@ function grph(text) {
     const time = document.getElementById('test').elements.time.value
     const c_value = document.getElementById('c_value').value
     const cc_value = document.getElementById('cc_value').value
-
+    const typ = document.getElementById('gtype_value').value
     let lchrt = new Chart(myChart, {
-        type: 'line',
+        type: typ,
         data: {
             labels: [21, 22, 23, 24, 25, 26, 27, 28, 29],
             datasets: [{
@@ -78,10 +79,7 @@ function grph(text) {
         },
         options: {}
     })
-
+    console.log(lchrt.config.type)
     return lchrt
-}
 
-document.getElementById('gtype_value').addEventListener('change', () => {
-    console.log(this.value)
-})
+}

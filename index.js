@@ -15,9 +15,9 @@ app.use('/static', express.static(path.join(__dirname, 'static')))
 app.set('views', path.join(__dirname, 'templates'))
 app.set('view engine', 'pug')
 
-mongoose.connect('mongodb://localhost/CCT', error => {
-	console.log(error)
-})
+// mongoose.connect('mongodb://localhost/CCT', error => {
+// 	console.log(error)
+// })
 
 
 // let Users = require('./models/ccschema')
@@ -80,26 +80,26 @@ app.get('/:time/:cc_value/:c_value', (req, res) => {
 
 		case 'week':
 			res.send(dates(7, req.params.cc_value, req.params.c_value))
-			break;
+			break
 
 		case 'month':
 			res.send(dates(30, req.params.cc_value, req.params.c_value))
-			break;
+			break
 
 		case '6months':
 			res.send(dates(182, req.params.cc_value, req.params.c_value))
-			break;
+			break
 
 		case 'year':
 			res.send(dates(365, req.params.cc_value, req.params.c_value))
-			break;
+			break
 	}
 })
 
 
 function dates(day, cc_value, c_value) {
-	let all_dates = new Array()
-	let prs = new Array()
+
+	let allData = new Array()
 	let today = new Date()
 	let oneday = 86400000
 
@@ -107,25 +107,23 @@ function dates(day, cc_value, c_value) {
 	for (let i = 0; i < day; i++) {
 		let ccdate = new Date(today.getTime() - oneday)
 		cc.priceHistorical(cc_value, c_value, ccdate)
-			.then(prices => {
-
+			.then(function s(prices) {
+				console.log(prices)
+				allData.push(prices)
 			})
 			.catch(console.error)
-		all_dates.push({
-			date: ccdate
-		})
 		oneday += 86400000
 	}
-	console.log(prsStrore())
-	console.log(prs)
-	return all_dates
-}
+	console.log(allData)
 
+	function prsStrore(prices, ccdate) {
+		allData.push({
+			price: prices,
+			date: ccdate
+		})
 
-function prsStrore(prices) {
-	let prices = new Array()
-	console.push(prices)
-
+	}
+	return allData
 }
 
 

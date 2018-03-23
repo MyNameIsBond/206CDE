@@ -32,16 +32,15 @@ html
 				each c in coin_names
 					option(value=c)= c
 			
-			select#gtype_value
-				option(value="line") line
+			select#gtype_value(onchange='time_f()')
+				option(value="line" checked='') line
 				option(value="bar") bar
-				option(value="bar") line
+				option(value="radar") radar
 
 
-
-		script(src="/static/bower_files/chart.js/dist/Chart.min.js")
-		script(src="/static/bower_files/chart.js/dist/Chart.js")
-		script(src='static/js/xml.js')
+	script(src="/static/bower_files/chart.js/dist/Chart.min.js")
+	script(src="/static/bower_files/chart.js/dist/Chart.js")
+	script(src='static/js/xml.js')
 	footer.footer
 		p This the footer (c).
 		a(href='#') Details
