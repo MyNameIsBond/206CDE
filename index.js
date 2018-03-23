@@ -103,27 +103,21 @@ function dates(day, cc_value, c_value) {
 	let today = new Date()
 	let oneday = 86400000
 
-
 	for (let i = 0; i < day; i++) {
 		let ccdate = new Date(today.getTime() - oneday)
-		allData.push(cc.priceHistorical(cc_value, c_value, ccdate)
+		cc.priceHistorical(cc_value, c_value, ccdate)
 			.then((prices) => {
-				console.log(prices)
 				return prices
-			}).catch(console.error))
+			}).then((prices) => {
+				allData.push({
+					price: prices,
+					date: `${ccdate.getDate()}-${ccdate.getMonth()}-${ccdate.getFullYear()}`
+				})
+			})
 
 		oneday += 86400000
 	}
 	console.log(allData)
-
-	function prsStrore(prices, ccdate) {
-		allData.push({
-			price: prices,
-			date: ccdate
-		})
-
-	}
-	return allData
 }
 
 
