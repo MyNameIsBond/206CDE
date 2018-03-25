@@ -97,7 +97,7 @@ app.get('/:time/:cc_value/:c_value', (req, res) => {
 })
 
 
-function dates(day, cc_value, c_value) {
+function dates(day, cc_value, c_value, callback) {
 
 	let allData = new Array()
 	let today = new Date()
@@ -113,11 +113,16 @@ function dates(day, cc_value, c_value) {
 					price: prices,
 					date: `${ccdate.getDate()}-${ccdate.getMonth()}-${ccdate.getFullYear()}`
 				})
-			})
+				return callback(null, allData => {
+					return allData
+				})
+				console.log(allData)
+			}).catch(console.error)
 
 		oneday += 86400000
 	}
 	console.log(allData)
+	return allData
 }
 
 
