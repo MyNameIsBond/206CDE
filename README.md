@@ -24,5 +24,6 @@ A CryptoTracker project which tracks current cryptocurrencies and visualises pre
 - [X]  Design the of the Website | Ty, Ghinal
 - [X]  Visualize Data | Alex,Tony
 - [X]  Back End | Tony 
-- [X]  Set up DateBase - MongoDB
+- [X]  Set up DateBase - MongoDB | Tony,Ghinal
+- [X]  Schema - MongoDB | Ghinal
 
