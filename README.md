@@ -4,7 +4,7 @@ A CryptoTracker project which tracks current cryptocurrencies and visualises pre
 
 
 
-<h1>Cruptocurrency in Node js</h1>
+<h1>Cryptocurrency in Node js</h1>
 
 <h2>To do</h2>
 
