@@ -68,7 +68,6 @@ function grph(text) {
                 borderColor: clr,
                 backgroundColor: clr
             }],
-
         },
         options: {}
     })
