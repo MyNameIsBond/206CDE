@@ -75,29 +75,34 @@ app.get('/graph/:crupto/:currency', (req, res) => {
 })
 
 
-app.get('/:time/:cc_value/:c_value', (req, res, dates) => {
+app.get('/:time/:cc_value/:c_value', (req, res) => {
 	let cc_value = req.params.cc_value
 	let c_value = req.params.c_value
 
 	switch (req.params.time) {
 
 		case 'week':
-			let d = await dates(7, cc_value, c_value)
-			console.log(d)
-			res.send(d)
+			dates(7, cc_value, c_value).then(allData => {
+				res.send(allData)
+			})
 			break
 
 		case 'month':
-			res.send(dates(30, cc_value, c_value))
+			dates(30, cc_value, c_value).then(allData => {
+				res.send(allData)
+			})
 			break
 
 		case '6months':
-			res.send(dates(182, cc_value, c_value))
+			dates(182, cc_value, c_value).then(allData => {
+				res.send(allData)
+			})
 			break
 
 		case 'year':
-
-			res.send(dates(365, cc_value, c_value))
+			dates(360, cc_value, c_value).then(allData => {
+				res.send(allData)
+			})
 			break
 	}
 })
@@ -119,7 +124,7 @@ async function dates(day, cc_value, c_value) {
 			let price = await cc.priceHistorical(cc_value, c_value, ccdate)
 			oneday += 86400000
 			allData.push({
-				price: price,
+				price: price[c_value],
 				date: `${ccdate.getDate()}-${ccdate.getMonth()}-${ccdate.getFullYear()}`
 			})
 		}

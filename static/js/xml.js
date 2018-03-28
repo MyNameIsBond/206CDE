@@ -35,7 +35,7 @@ function time_f() {
             console.log(error, this.statusText)
         }
     }
-    
+
     xml.open('GET', ` /${time}/${cc_value}/${c_value}`, true)
     xml.send()
 }
@@ -46,32 +46,25 @@ function grph(text) {
     const date = new Array()
     const price = new Array()
     const data = JSON.parse(text)
-    console.log(data)
-    console.log('frond-end')
+    const c_value = document.getElementById('c_value').value
+    for (const i in data) {
+        price.push(data[i].price)
+        date.push(data[i].date)
+    }
 
 
     const myChart = document.getElementById('myChart').getContext('2d')
     const time = document.getElementById('test').elements.time.value
-    const c_value = document.getElementById('c_value').value
     const cc_value = document.getElementById('cc_value').value
     const typ = document.getElementById('gtype_value').value
     const clr = document.getElementById('clr_value').value
     const lchrt = new Chart(myChart, {
         type: typ,
         data: {
-            labels: [21, 22, 23, 24, 25, 26, 27, 28, 29],
+            labels: date,
             datasets: [{
                 label: [c_value, cc_value],
-                data: [7409.44,
-                    6739.05,
-                    6203.27,
-                    6742.8,
-                    6632.47,
-                    7402.44,
-                    6404.29,
-                    6604.29,
-                    6904.29
-                ],
+                data: price,
                 borderColor: clr,
                 backgroundColor: clr
             }],
