@@ -35,7 +35,8 @@ function time_f() {
             console.log(error, this.statusText)
         }
     }
-    xml.open('GET', `/${time}/${cc_value}/${c_value}`, true)
+    
+    xml.open('GET', ` /${time}/${cc_value}/${c_value}`, true)
     xml.send()
 }
 
@@ -46,10 +47,9 @@ function grph(text) {
     const price = new Array()
     const data = JSON.parse(text)
     console.log(data)
-    for (var i = 0; i < data.length; i++) {
-        date.push(data[i].date)
-        price.push(data[i].price)
-    }
+    console.log('frond-end')
+
+
     const myChart = document.getElementById('myChart').getContext('2d')
     const time = document.getElementById('test').elements.time.value
     const c_value = document.getElementById('c_value').value
