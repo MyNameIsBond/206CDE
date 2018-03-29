@@ -1,3 +1,4 @@
+
 'use strict'
 
 const path = require('path')
@@ -135,17 +136,48 @@ async function dates(day, cc_value, c_value) {
 	return allData
 }
 
+async function fetchNames() {
+
+	let names = Array()
+	try {
+		let responce = await cc.coinList()
+		for (const n in responce.Data) {
+			names.push({
+				name: responce.Data[n].FullName,
+				symbol: responce.Data[n].Symbol
+			})
+		}
+	} catch (error) {
+		console.log(error)
+	}
+	return names
+}
 
 
-// app.get('/query', (req, res) => {
-// 	Users.find({username: `${username}` , pass:`${pass}`}, (err, user) => {
-// 		res.render('base', {
-// 			email: 'email',
-// 			username: 'username'
-// 		})
-// 	})
-// })
+app.get('/cc-list', (req, res) => {
+	fetchNames().then(names => {
+		console.log(typeof names)
+		res.render('cc-list', { 'names': names })
+	}).catch(console.error)
+})
+
+
+app.get('/home', (req, res) => {
+	res.render('home')
+})
 
 app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
+
+
+
+
+	// app.get('/query', (req, res) => {
+	// 	Users.find({username: `${username}` , pass:`${pass}`}, (err, user) => {
+	// 		res.render('base', {
+	// 			email: 'email',
+	// 			username: 'username'
+	// 		})
+	// 	})
+	// })
 })

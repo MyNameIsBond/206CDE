@@ -20,6 +20,8 @@ function send_data() {
 }
 
 
+
+// XML call to take data for the graph
 function time_f() {
     const time = document.getElementById('test').elements.time.value
     const cc_value = document.getElementById('cc_value').value
@@ -41,7 +43,6 @@ function time_f() {
 }
 
 // the Graph!
-
 function grph(text) {
     const date = new Array()
     const price = new Array()

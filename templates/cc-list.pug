@@ -1,0 +1,20 @@
+extends base.pug
+
+block content
+
+
+    h1.container Coin Info
+
+    div.container
+        table.table
+            thead
+                th Icon
+                th(scope='col') Name
+                th(scope='col') Price
+                th(scope='col') last 24 hours
+                each coin in names
+                    tbody#tbl
+                        th: i.cc(class=coin.symbol title=coin.name)
+                        td= coin.name
+                        td £3.398.328
+                        td#price -%2,4343

@@ -1,0 +1,108 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        link(rel='shortcut icon', href='img/favicon.png')
+        title Bitcoin tracker template
+        // Icons
+        link(rel='stylesheet',href='static/css/home.css')
+        link(rel='stylesheet',href='static/bower_files/bootstrap/dist/css/bootstrap.css')
+        link(href='static/css/font-awesome/css/font-awesome.min.css')
+        link(rel='stylesheet' href='/static/css/cryptocoins-icons/webfont/cryptocoins.css')
+        link(rel='stylesheet' href='/static/css/cryptocoins-icons/webfont/cryptocoins-colors.css')
+        link(href='static/design-Ty/vendors/css/flag-icon.min.css', rel='stylesheet')
+        link(href='static/design-Ty/vendors/css/font-awesome.min.css', rel='stylesheet')
+        link(href='static/design-Ty/vendors/css/simple-line-icons.min.css', rel='stylesheet')
+        link(href="static/design-Ty/css/style.css" rel="stylesheet")
+    body.app.header-fixed.sidebar-fixed.aside-menu-fixed.aside-menu-hidden
+        header.app-header.navbar
+            button.navbar-toggler.mobile-sidebar-toggler.d-lg-none.mr-auto(type='button')
+                span.navbar-toggler-icon
+            a.navbar-brand(href='#')
+            button.navbar-toggler.sidebar-toggler.d-md-down-none(type='button')
+                span.navbar-toggler-icon
+            ul.nav.navbar-nav.d-md-down-none
+            ul.nav.navbar-nav.ml-auto
+                li.nav-item.d-md-down-none
+                    .input-group
+                        span.input-group-prepend
+                            button.btn.btn-primary(type='button')
+                                i.fa.fa-search
+                                |  Search
+                        input#input1-group2.form-control(type='text', name='input1-group2', placeholder='Username')
+            button.navbar-toggler.aside-menu-toggler(type='button')
+                span.navbar-toggler-icon
+        .app-body
+            .sidebar
+                nav.sidebar-nav
+                    ul.nav
+                        li.nav-item
+                            a.nav-link(href='index.html')
+                                i.icon-speedometer
+                                |Home 
+                                span.badge.badge-primary
+                        li.nav-title
+                            | Diff Charts? -candelsticks
+                        li.nav-item
+                            a.nav-link(href='charts.html')
+                                i.icon-pie-chart
+                                |  Charts
+                        li.nav-item.nav-dropdown
+                            a.nav-link.nav-dropdown-toggle(href='#')
+                                i.icon-bell
+                                |  News
+                            ul.nav-dropdown-items
+                                li.nav-item
+                                    a.nav-link(href='news.html')
+                                        i.icon-bell
+                                        |  Real time news updates
+                                li.nav-item.nav-dropdown
+                                    a.nav-link.nav-dropdown-toggle(href='#')
+                                        i.icon-bell
+                                        | How to Trade
+                                    ul.nav-dropdown-items
+                                        li.nav-item
+                                            a.nav-link(href='patterns.html')
+                                                i.icon-bell
+                                                |  Patterns
+            // Main content
+            main.main
+                //.conainer-fluid
+                
+            aside.aside-menu
+                .dropdown-header.text-center
+                    strong Account
+                a.dropdown-item(href='#')
+                    i.fa.fa-bell-o
+                    |  Updates
+                    span.badge.badge-info 42
+                a.dropdown-item(href='#')
+                    i.fa.fa-envelope-o
+                    |  Messages
+                    span.badge.badge-success 42
+                .dropdown-header.text-center
+                    strong Settings
+                a.dropdown-item(href='#')
+                    i.fa.fa-user
+                    |  Profile
+                a.dropdown-item(href='#')
+                    i.fa.fa-wrench
+                    |  Settings
+                .divider
+                a.dropdown-item(href='#')
+                    i.fa.fa-lock
+                    |  Logout
+        footer.app-footer
+            span.ml-auto The Bitcoin Tracker
+            
+    script(src="/static/bower_files/chart.js/dist/Chart.min.js")
+    script(src="/static/bower_files/chart.js/dist/Chart.js")
+    script(src='static/js/xml.js')
+    script(src='static/js/looks.js')
+    script(src='static/bower_files/bootstrap/assets/js/vendor/jquery-slim.min.js')
+    script(src='static/design-Ty/vendors/js/pace.min.js')
+    // CoreUI main scripts
+    script(src='static/design-Ty/js/app.js')
+    

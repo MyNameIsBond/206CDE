@@ -21,6 +21,28 @@ body {
     color: goldenrod;
 }
 
-.footer a:visited {
-    color: darkslategrey;
+
+.card{
+    border:1px solid black;
+    height: 150px;
+    width: 100%;
+
+}   
+
+.col {
+    position: relative;
+    border:1px solid black;
+    height: 100%;
+    text-align: center;      
+    margin: 0 auto;
 }
+
+i {
+    text-align: center;  
+    font-size: 200%;   
+}
+
+#price {
+    color: red;
+}
+
