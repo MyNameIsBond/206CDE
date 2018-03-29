@@ -14,7 +14,9 @@ block content
                 th(scope='col') last 24 hours
                 each coin in names
                     tbody#tbl
-                        th: i.cc(class=coin.symbol title=coin.name)
+                        th: i#icon.cc(class=coin.symbol title=coin.name)
                         td= coin.name
                         td £3.398.328
                         td#price -%2,4343
+
+    script(href='script/js/looks.js')

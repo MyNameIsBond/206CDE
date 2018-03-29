@@ -16,6 +16,7 @@ html(lang='en')
         link(href='static/design-Ty/vendors/css/font-awesome.min.css', rel='stylesheet')
         link(href='static/design-Ty/vendors/css/simple-line-icons.min.css', rel='stylesheet')
         link(href="static/design-Ty/css/style.css" rel="stylesheet")
+        link(href='static/font-a/advanced-options/use-with-node-js/fontawesome-free-webfonts/css/fontawesome.css')
     body.app.header-fixed.sidebar-fixed.aside-menu-fixed.aside-menu-hidden
         header.app-header.navbar
             button.navbar-toggler.mobile-sidebar-toggler.d-lg-none.mr-auto(type='button')
@@ -62,15 +63,10 @@ html(lang='en')
                                     a.nav-link.nav-dropdown-toggle(href='#')
                                         i.icon-bell
                                         | How to Trade
-                                li.nav-item.nav-dropdown
-                                    a.nav-link.nav-dropdown-toggle(href='#')
-                                        i.glyphicon.glyphicon-list-alt
+                                li.nav-item
+                                    a.nav-link(href='/cc-list')
+                                        i.icon-bell
                                         |Board
-                                    ul.nav-dropdown-items
-                                        li.nav-item
-                                            a.nav-link(href='patterns.html')
-                                                i.icon-bell
-                                                |  Patterns
             // Main content
             main.main
                 .conainer-fluid

@@ -1,6 +1,6 @@
+
 // recieves the Currencies from back end.
 window.onload = time_f()
-
 function send_data() {
     const cc_value = document.getElementById('cc_value').value
     const c_value = document.getElementById('c_value').value
