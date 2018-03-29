@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 				ccoin_names: ccoin_names,
 				coin_names: coin_names,
 			}
-			res.render('base', coins)
+			res.render('home', coins)
 		})
 		.catch(console.error)
 })

@@ -39,7 +39,7 @@ html(lang='en')
                 nav.sidebar-nav
                     ul.nav
                         li.nav-item
-                            a.nav-link(href='index.html')
+                            a.nav-link(href='/')
                                 i.icon-speedometer
                                 |Home 
                                 span.badge.badge-primary
@@ -62,6 +62,10 @@ html(lang='en')
                                     a.nav-link.nav-dropdown-toggle(href='#')
                                         i.icon-bell
                                         | How to Trade
+                                li.nav-item.nav-dropdown
+                                    a.nav-link.nav-dropdown-toggle(href='#')
+                                        i.glyphicon.glyphicon-list-alt
+                                        |Board
                                     ul.nav-dropdown-items
                                         li.nav-item
                                             a.nav-link(href='patterns.html')
@@ -69,8 +73,42 @@ html(lang='en')
                                                 |  Patterns
             // Main content
             main.main
-                //.conainer-fluid
-                
+                .conainer-fluid
+                    block content
+                        div.container
+                            div#c_response
+                        form#test.container(onclick='time_f()')
+                            input(type="radio" name="time" value='week' checked='')
+                            | Week 
+                            input(type="radio" name="time" value='month') 
+                            | Month 
+                            input(type="radio" name="time" value='6months') 
+                            | 6 months 
+                            input(type="radio" name="time" value='year') 
+                            | Year 
+
+                        div#time_f.container
+                            canvas#myChart
+                        div.container
+                            select#cc_value(onchange='time_f()')
+                                each cc in ccoin_names
+                                    option(value=cc.Name)= cc.FullName
+
+                            select#c_value(onchange='time_f()')
+                                each c in coin_names
+                                    option(value=c)= c
+                            
+                            select#gtype_value(onchange='time_f()')
+                                option(value="line" checked='') Line
+                                option(value="bar") Bar
+                                option(value="radar") Radar
+                                option(value="polarArea") Polar Area
+                            
+                            select#clr_value(onchange='time_f()')
+                                option(value="rgba(39,196,255,0.6)" checked='') blue
+                                option(value="rgba(255,0,56,0.6)") red
+                                option(value="rgba(119,192,99,0.6)") green
+                                option(value="rgba(51,57,62,0.6)") Dark
             aside.aside-menu
                 .dropdown-header.text-center
                     strong Account

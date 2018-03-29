@@ -24,7 +24,6 @@ html
 			div#time_f.container
 				canvas#myChart
 			div.container
-
 				select#cc_value(onchange='time_f()')
 					each cc in ccoin_names
 						option(value=cc.Name)= cc.FullName
@@ -38,7 +37,7 @@ html
 					option(value="bar") Bar
 					option(value="radar") Radar
 					option(value="polarArea") Polar Area
-				
+					
 				select#clr_value(onchange='time_f()')
 					option(value="rgba(39,196,255,0.6)" checked='') blue
 					option(value="rgba(255,0,56,0.6)") red
