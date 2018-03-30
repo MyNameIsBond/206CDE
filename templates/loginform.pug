@@ -3,7 +3,8 @@ extends base.pug
 div.container
 
 	button(type='button') Register
-	button(type='button') Log In
+	button(type='button' onclick='getInfo()') Log In
+
 	form
 		p
 			input(type='text' name='username' placeholder='Username')
@@ -23,4 +24,4 @@ div.container
 			p email
 				input(type='email' name='Password' placeholder='example@example.ac.uk')
 
-	
+	script(src="/index.js")

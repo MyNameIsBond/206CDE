@@ -178,6 +178,21 @@ app.listen(port, () => {
 })
 
 
+	}
+async function getInfo() {
+	let username = document.getElementById("username").value
+	let password = document.getElementById("password").value
+
+	for(i = 0; i < Users.length; i++) {
+		if(username == Users[i].username && password ==  Users[i].password) {
+			console.log(username + 'is logged in!!!')
+		} 
+			console.log("incorrect username or password")
+			return
+		}
+		console.log('Incorrect username or password')
+		
+}
 
 		// app.get('/query', (req, res) => {
 		// 	Users.find({username: `${username}` , pass:`${pass}`}, (err, user) => {
