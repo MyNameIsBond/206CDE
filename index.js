@@ -136,15 +136,22 @@ async function dates(day, cc_value, c_value) {
 	return allData
 }
 
-async function fetchNames() {
+// async function histdata() {
+// 	const let k = await fetch()
+// }
 
+
+async function fetchNames() {
 	let names = Array()
 	try {
 		let responce = await cc.coinList()
 		for (const n in responce.Data) {
 			names.push({
 				name: responce.Data[n].FullName,
-				symbol: responce.Data[n].Symbol
+				symbol: responce.Data[n].Symbol,
+				url: `https://www.cryptocompare.com${responce.Data[n].ImageUrl}`,
+				today: new Date().getTime()
+
 			})
 		}
 	} catch (error) {
