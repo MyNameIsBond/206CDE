@@ -1,27 +1,30 @@
-extends base.pug
+extends home.pug
+block content
+	.container
+		ul.nav.nav-tabs
+			li.nav-item: a.nav-link.active(data-toggle="tab" role="tab" aria-controls="register" ) Register
+			li.nav-item: a.nav-link(data-toggle="tab" role="tab" aria-controls="log" ) Log In
+		br
+		div#myTabContent.form-group.tab-pane.fade
+			form
+				p: input.form-control(type='text' name='username' placeholder='Username')
+				p: input.form-control(type='password' name='password' placeholder='Password')
+				a forgot my password?
+				p: button.btn.btn-primary.btn-block(type='button') Log In
 
-div.container
+		div.form-group.tab-pane.fade.show.active
+			form
+				p: input.form-control(type='text' name='username' placeholder='Username')
+				p: input.form-control(type='password' name='Password' placeholder='Password')
+				p: input.form-control(type='password' name='Password' placeholder='Password')
+				p: input.form-control(type='email' name='Password' placeholder='example@example.ac.uk')
+				p: button.btn.btn-primary.btn-block(type='button') Register
+	
+	script(src='static/bower_files/bootstrap/dist/js/bootstrap.js')
+	script(src='static/bower_files/bootstrap/dist/js/bootstrap.min.js')
+	script(src='static/design-Ty/vendors/js/popper.min.js')
+	script(src='static/design-Ty/vendors/js/popper.min.js')
 
-	button(type='button') Register
-	button(type='button' onclick='getInfo()') Log In
 
-	form
-		p
-			input(type='text' name='username' placeholder='Username')
-		p
-			input(type='password' name='password' placeholder='Password')
-		p
-			button.btn.btn-primary(type='button') Log In
-  
-	div
-		form
-			p Username 
-				input(type='text' name='username' placeholder='Username')
-			p Password
-				input(type='password' name='Password' placeholder='Password')
-			p Repeat Password
-				input(type='password' name='Password' placeholder='Password')
-			p email
-				input(type='email' name='Password' placeholder='example@example.ac.uk')
 
-	script(src="/index.js")
+
