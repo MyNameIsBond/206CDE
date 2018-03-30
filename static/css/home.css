@@ -37,12 +37,10 @@ body {
     margin: 0 auto;
 }
 
-i {
-    text-align: center;  
-    font-size: 200%;   
-}
-
-#price {
+.price {
     color: red;
 }
 
+.tbl{
+    font-size: 20px;
+}

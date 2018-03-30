@@ -12,11 +12,13 @@ block content
                 th(scope='col') Name
                 th(scope='col') Price
                 th(scope='col') last 24 hours
+                th(scope='col') details
                 each coin in names
-                    tbody#tbl
-                        th: i#icon.cc(class=coin.symbol title=coin.name)
+                    tbody.tbl
+                        td: img(width="40" height="40" src=coin.url title=coin.name)
                         td= coin.name
                         td £3.398.328
-                        td#price -%2,4343
+                        td.price -%2,4343
+                        td.tinyGr: img(ng-src=`https://images.cryptocompare.com/sparkchart/${coin.symbol}/USD/latest.png?ts=${today}` src=`https://images.cryptocompare.com/sparkchart/${coin.symbol}/USD/latest.png?ts=${today}`)
 
     script(href='script/js/looks.js')
