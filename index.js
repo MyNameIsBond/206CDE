@@ -145,13 +145,13 @@ async function fetchNames() {
 	let names = Array()
 	try {
 		let responce = await cc.coinList()
+
 		for (const n in responce.Data) {
 			names.push({
 				name: responce.Data[n].FullName,
 				symbol: responce.Data[n].Symbol,
 				url: `https://www.cryptocompare.com${responce.Data[n].ImageUrl}`,
 				today: new Date().getTime()
-
 			})
 		}
 	} catch (error) {
@@ -175,16 +175,15 @@ app.get('/home', (req, res) => {
 
 app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
-
-
-
-
-	// app.get('/query', (req, res) => {
-	// 	Users.find({username: `${username}` , pass:`${pass}`}, (err, user) => {
-	// 		res.render('base', {
-	// 			email: 'email',
-	// 			username: 'username'
-	// 		})
-	// 	})
-	// })
 })
+
+
+
+		// app.get('/query', (req, res) => {
+		// 	Users.find({username: `${username}` , pass:`${pass}`}, (err, user) => {
+		// 		res.render('base', {
+		// 			email: 'email',
+		// 			username: 'username'
+		// 		})
+		// 	})
+		// })
