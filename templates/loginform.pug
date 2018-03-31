@@ -5,14 +5,16 @@ block content
 			li.nav-item: a.nav-link.active(data-toggle="tab" role="tab" aria-controls="register" ) Register
 			li.nav-item: a.nav-link(data-toggle="tab" role="tab" aria-controls="log" ) Log In
 		br
-		div#myTabContent.form-group.tab-pane.fade
+		div#myTabContent.form-group.tab-pane.fade.show.active
+			h1 Sigh In
 			form
 				p: input.form-control(type='text' name='username' placeholder='Username')
 				p: input.form-control(type='password' name='password' placeholder='Password')
 				a forgot my password?
 				p: button.btn.btn-primary.btn-block(type='button') Log In
 
-		div.form-group.tab-pane.fade.show.active
+		div.form-group.tab-pane.fade
+			h1 Register
 			form
 				p: input.form-control(type='text' name='username' placeholder='Username')
 				p: input.form-control(type='password' name='Password' placeholder='Password')

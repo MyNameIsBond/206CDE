@@ -142,16 +142,16 @@ async function dates(day, cc_value, c_value) {
 
 
 async function fetchNames() {
-	let names = Array()
+	let names = new Array()
 	try {
 		let responce = await cc.coinList()
-
 		for (const n in responce.Data) {
+			console.log(typeof res)
 			names.push({
 				name: responce.Data[n].FullName,
 				symbol: responce.Data[n].Symbol,
 				url: `https://www.cryptocompare.com${responce.Data[n].ImageUrl}`,
-				today: new Date().getTime()
+				today: new Date().getTime(),
 			})
 		}
 	} catch (error) {
@@ -163,14 +163,8 @@ async function fetchNames() {
 
 app.get('/cc-list', (req, res) => {
 	fetchNames().then(names => {
-		console.log(typeof names)
 		res.render('cc-list', { 'names': names })
 	}).catch(console.error)
-})
-
-
-app.get('/home', (req, res) => {
-	res.render('home')
 })
 
 
@@ -182,10 +176,6 @@ app.get('/loginform', (req, res) => {
 
 app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
-})
-
-app.post('/auth', (req, res) => {
-
 })
 
 
