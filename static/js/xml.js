@@ -58,7 +58,7 @@ function grph(text) {
     const time = document.getElementById('test').elements.time.value
     const cc_value = document.getElementById('cc_value').value
     const typ = document.getElementById('gtype_value').value
-    const clr = document.getElementById('clr_value').value
+    const clr = document.getElementById('clr').value
     const lchrt = new Chart(myChart, {
         type: typ,
         data: {
@@ -75,3 +75,26 @@ function grph(text) {
     return lchrt
 
 }
+
+
+document.getElementById('give').addEventListener('keyup', function () {
+    let vl = document.getElementById('give').value
+    let cvl = document.getElementById('take').value
+    let c_value = document.getElementById('converter').value
+    console.log(cvl)
+    console.log(vl)
+    console.log(c_value)
+
+    const xml = new XMLHttpRequest()
+
+    xml.onload = function () {
+        if (this.status === 200 && this.readyState === 4) {
+            document.getElementById('take').innerHTML = this.responseText
+        } else {
+            const error = 'Something went wrong with the converter'
+            console.log(error, this.statusText)
+        }
+    }
+    xml.open('GET', `${c_value}/${vl}`, true)
+    xml.send()
+})

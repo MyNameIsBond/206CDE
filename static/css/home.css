@@ -4,7 +4,8 @@ body {
 }
 
 #test {
-    background-color: white;
+    padding: 10px;
+    padding-left: 22px;
 }
 
 .footer {
@@ -20,7 +21,6 @@ body {
     text-decoration: none;
     color: goldenrod;
 }
-
 
 .card{
     border:1px solid black;

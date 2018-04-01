@@ -54,6 +54,7 @@ html(lang='en')
                             a.nav-link.nav-dropdown-toggle(href='#')
                                 i.icon-bell
                                 |  News
+                                
                             ul.nav-dropdown-items
                                 li.nav-item
                                     a.nav-link(href='news.html')
@@ -67,6 +68,18 @@ html(lang='en')
                                     a.nav-link(href='/cc-list')
                                         i.icon-bell
                                         |Board
+                            form.form-group
+                                hr
+                                h2 Converter
+                                h4: small I give
+                                p: input#give.form-control(type="text", placeholder='BTC')
+                                h4: small I take
+                                p#take.form-control
+                                select#converter
+                                    option(value="EUR" checked='') EUR
+                                    option(value="GBP") GBP
+                                    option(value="CNY") CNY
+                                    option(value="USD") USD
             // Main content
             main.main
                 .conainer-fluid
@@ -81,7 +94,9 @@ html(lang='en')
                             input(type="radio" name="time" value='6months') 
                             | 6 months 
                             input(type="radio" name="time" value='year') 
-                            | Year 
+                            | Year
+                            input#clr(type="color" onchange='time_f()')
+                            | Colour 
 
                         div#time_f.container
                             canvas#myChart
@@ -100,11 +115,6 @@ html(lang='en')
                                 option(value="radar") Radar
                                 option(value="polarArea") Polar Area
                             
-                            select#clr_value(onchange='time_f()')
-                                option(value="rgba(39,196,255,0.6)" checked='') blue
-                                option(value="rgba(255,0,56,0.6)") red
-                                option(value="rgba(119,192,99,0.6)") green
-                                option(value="rgba(51,57,62,0.6)") Dark
             aside.aside-menu
                 .dropdown-header.text-center
                     strong Account

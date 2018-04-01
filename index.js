@@ -136,9 +136,17 @@ async function dates(day, cc_value, c_value) {
 	return allData
 }
 
-// async function histdata() {
-// 	const let k = await fetch()
-// }
+
+app.get('/:currency/:value', (req, res) => {
+	let cur = req.params.currency
+	cc.price('BTC', cur)
+		.then(prices => {
+			let lst = prices[cur] * req.params.value
+			// res.send(prices)
+			res.send(lst.toString())
+		})
+		.catch(console.error)
+})
 
 
 async function fetchNames() {
@@ -146,13 +154,20 @@ async function fetchNames() {
 	try {
 		let responce = await cc.coinList()
 		for (const n in responce.Data) {
-			console.log(typeof res)
-			names.push({
-				name: responce.Data[n].FullName,
-				symbol: responce.Data[n].Symbol,
-				url: `https://www.cryptocompare.com${responce.Data[n].ImageUrl}`,
-				today: new Date().getTime(),
-			})
+			let sym = responce.Data[n]
+			if (sym.Symbol.includes('*') === false) {
+				let priceF = await cc.priceFull(responce.Data[n].Symbol, 'USD')
+				if (priceF[n].USD.CHANGEPCT24HOUR !== 0) {
+					names.push({
+						name: responce.Data[n].FullName,
+						symbol: responce.Data[n].Symbol,
+						url: `https://www.cryptocompare.com${responce.Data[n].ImageUrl}`,
+						today: new Date().getTime(),
+						price: `$ ${priceF[n].USD.PRICE}`,
+						last: priceF[n].USD.CHANGEPCT24HOUR
+					})
+				}
+			}
 		}
 	} catch (error) {
 		console.log(error)
@@ -174,9 +189,7 @@ app.get('/loginform', (req, res) => {
 
 
 
-app.listen(port, () => {
-	console.log(`Server runs at ${port}`)
-})
+
 
 
 async function getInfo() {
@@ -193,8 +206,11 @@ async function getInfo() {
 	console.log('Incorrect username or password')
 }
 
+app.listen(port, () => {
+	console.log(`Server runs at ${port}`)
+})
 // app.get('/query', (req, res) => {
-// 	Users.find({username: `${username}` , pass:`${pass}`}, (err, user) => {
+	// 	Users.find({username: `${username}` , pass:`${pass}`}, (err, user) => {
 // 		res.render('base', {
 // 			email: 'email',
 // 			username: 'username'
