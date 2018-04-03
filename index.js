@@ -23,6 +23,9 @@ app.set('view engine', 'pug')
 
 // let Users = require('./models/ccschema')
 
+
+
+
 // Home Page
 app.get('/', (req, res) => {
 	cc.coinList()
@@ -176,6 +179,7 @@ async function fetchNames() {
 }
 
 
+
 app.get('/cc-list', (req, res) => {
 	fetchNames().then(names => {
 		res.render('cc-list', { 'names': names })
@@ -186,9 +190,6 @@ app.get('/cc-list', (req, res) => {
 app.get('/loginform', (req, res) => {
 	res.render('loginform')
 })
-
-
-
 
 
 
@@ -206,9 +207,22 @@ async function getInfo() {
 	console.log('Incorrect username or password')
 }
 
+
 app.listen(port, () => {
 	console.log(`Server runs at ${port}`)
 })
+
+
+
+module.exports = app
+
+
+
+
+
+
+
+
 // app.get('/query', (req, res) => {
 	// 	Users.find({username: `${username}` , pass:`${pass}`}, (err, user) => {
 // 		res.render('base', {
