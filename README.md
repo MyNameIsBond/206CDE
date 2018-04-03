@@ -9,7 +9,6 @@ A CryptoTracker project which tracks current cryptocurrencies and visualises pre
 <h2>To do</h2>
 
 - [ ]  Profile Page
-- [ ]  Data list with CC
 
 
 <h2>In Progress</h2>
@@ -20,7 +19,7 @@ A CryptoTracker project which tracks current cryptocurrencies and visualises pre
     
 <h2>Done</h2>
 
-
+- [X]  Data list with CC | Tony
 - [X]  Coin List Page | Tony
 - [X]  UnitTesting | Tony
 - [X]  Design the of the Website | Ty, Ghinal
