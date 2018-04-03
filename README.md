@@ -15,13 +15,14 @@ A CryptoTracker project which tracks current cryptocurrencies and visualises pre
 <h2>In Progress</h2>
 
 - [ ]  Search Field | Tony
-- [ ]  Coin List Page | Tony
 - [ ]  Chatting System | Gazwa 
 - [ ]  log in / log out / register | ALex
     
 <h2>Done</h2>
 
 
+- [X]  Coin List Page | Tony
+- [X]  UnitTesting | Tony
 - [X]  Design the of the Website | Ty, Ghinal
 - [X]  Visualize Data | Alex,Tony
 - [X]  Back End | Tony 
