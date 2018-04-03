@@ -7,7 +7,7 @@ const server = require('../index.js')
 const should = chai.should()
 chai.use(chaihttp)
 
-
+// testing for servers.
 
 
 
@@ -86,3 +86,7 @@ describe('convertor.', () => {
         done()
     })
 })
+
+
+// if you wanna run the test make sure the server is off
+// command : $ npm run test
