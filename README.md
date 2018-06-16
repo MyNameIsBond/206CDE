@@ -1,4 +1,4 @@
-# 206CDE
+# Cryptocurrency tracker. 
 A CryptoTracker project which tracks current cryptocurrencies and visualises predictions.
 
 
