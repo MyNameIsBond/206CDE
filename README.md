@@ -1,10 +1,10 @@
-# Cryptocurrency tracker. 
+<h1>Cryptocurrency in Node js</h1>
 A CryptoTracker project which tracks current cryptocurrencies and visualises predictions.
 
 
 
 
-<h1>Cryptocurrency in Node js</h1>
+
 
 <h2>To do</h2>
 
